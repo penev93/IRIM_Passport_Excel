@@ -1,0 +1,206 @@
+<?php
+ECHO "Честито създадохте паспорт с № ".$_POST['PC_Conf'];
+
+/** Error reporting */
+error_reporting(E_ALL);
+ini_set('display_errors', TRUE);
+ini_set('display_startup_errors', TRUE);
+
+define('EOL',(PHP_SAPI == 'cli') ? PHP_EOL : '<br />');
+
+
+/** PHPExcel_IOFactory */
+require_once dirname(__FILE__) . './Classes/PHPExcel/IOFactory.php';
+$objReader = PHPExcel_IOFactory::createReader('Excel5');
+$objPHPExcel = $objReader->load("./Examples/templates/Passport.xls");
+	
+	
+	//Importing data to xlsx file !
+	//$objPHPExcel->getActiveSheet()->setCellValue('A3',);
+
+
+	// ПАСПОРТ ЗА КОМПЮТЪРНА КОНФИГУРАЦИЯ	Номер A3
+	$objPHPExcel->getActiveSheet()->setCellValue('A3',"№ "$_POST['PC_Conf']);
+
+	//Местоположение на компютърна конфигурация 	C4
+	$objPHPExcel->getActiveSheet()->setCellValue('C4',$_POST['place']);	
+	
+	//Име PC B6
+	$objPHPExcel->getActiveSheet()->setCellValue('B6',$_POST['name']);
+	//Потребител B7
+
+	$objPHPExcel->getActiveSheet()->setCellValue('B7',$_POST['user']);
+	
+	//Група D7
+	$objPHPExcel->getActiveSheet()->setCellValue('D7',$_POST['group']);
+
+	//Операционна система B8
+	$objPHPExcel->getActiveSheet()->setCellValue('B8',$_POST['os']);
+
+	//Лиценз номер B9
+	$objPHPExcel->getActiveSheet()->setCellValue('B9',$_POST['license']);
+
+	//
+	//MAC адрес B10
+	$objPHPExcel->getActiveSheet()->setCellValue('B10',$_POST['mac']);
+
+	//IP адрес B11
+	$objPHPExcel->getActiveSheet()->setCellValue('B11',$_POST['ip']);
+
+	//Закупен цена B12
+	$objPHPExcel->getActiveSheet()->setCellValue('B12',$_POST['price']);
+
+	//HDD B14
+	$objPHPExcel->getActiveSheet()->setCellValue('B14',$_POST['hdd']);
+
+	//RAM B15
+	$objPHPExcel->getActiveSheet()->setCellValue('B15',$_POST['ram']);
+
+	//Процесор B16
+	$objPHPExcel->getActiveSheet()->setCellValue('B16',$_POST['processor']);
+
+	//Видео карта B17
+	$objPHPExcel->getActiveSheet()->setCellValue('B17',$_POST['displayDrive']);
+	
+	//Активиран интернет B19
+	$objPHPExcel->getActiveSheet()->setCellValue('B19',$_POST['activeNet']);
+
+	//Активиран Е-mail B20
+	$objPHPExcel->getActiveSheet()->setCellValue('B20',$_POST['activeEmail']);
+
+	//Чат клиент(име) B21
+	$objPHPExcel->getActiveSheet()->setCellValue('B21',$_POST['ChatClient']);
+
+	//Достъп към сървар B22
+	$objPHPExcel->getActiveSheet()->setCellValue('B22',$_POST['AccessServer']);
+
+	//Използва принтер B23
+	$objPHPExcel->getActiveSheet()->setCellValue('B23',$_POST['usePrinter']);
+
+	//Разрешени USB B24
+	$objPHPExcel->getActiveSheet()->setCellValue('B24',$_POST['perUSB']);
+
+
+
+
+
+	
+
+	//Office B27 Версия
+	$objPHPExcel->getActiveSheet()->setCellValue('B27',$_POST['OfficeV']);
+
+	//Office C27 Фактура номер 
+	$objPHPExcel->getActiveSheet()->setCellValue('C27',$_POST['OfficeInvoice']);
+
+	//Office D27 Лиценз
+	$objPHPExcel->getActiveSheet()->setCellValue('D27',$_POST['OfficeLicense']);
+
+
+	//Microsoft Access Версия B28
+	$objPHPExcel->getActiveSheet()->setCellValue('B28',$_POST['MicrosoftAccessV']);
+
+		//C28		 Фактура номер 
+	$objPHPExcel->getActiveSheet()->setCellValue('C28',$_POST['MicrosoftAccessInvoice']);
+
+		//D28 Лиценз
+	$objPHPExcel->getActiveSheet()->setCellValue('D28',$_POST['MicrosoftAccessL']);
+
+
+
+	//DEGA Версия B29
+	$objPHPExcel->getActiveSheet()->setCellValue('B29',$_POST['DEGAV']);
+
+ 		//Фактура номер C29
+ 		$objPHPExcel->getActiveSheet()->setCellValue('C29',$_POST['DEGAInvoice']);
+
+		//D29 Лиценз
+		$objPHPExcel->getActiveSheet()->setCellValue('D29',$_POST['DEGAL']);
+
+
+
+	//Антивирус Версия B30
+	$objPHPExcel->getActiveSheet()->setCellValue('B30',$_POST['AntivirusVersion']);
+
+ 	//Фактура номер C30
+ 	$objPHPExcel->getActiveSheet()->setCellValue('C30',$_POST['AntivirusInvoice']);
+
+		//D30 Лиценз
+		$objPHPExcel->getActiveSheet()->setCellValue('D30',$_POST['AntivirusL']);
+
+
+
+	//Архиватор Версия B31
+		$objPHPExcel->getActiveSheet()->setCellValue('B31',$_POST['ArchiveV']);
+
+ 		//Фактура номер  C31
+ 			$objPHPExcel->getActiveSheet()->setCellValue('C31',$_POST['ArchiveInvoice']);
+
+		//D31 Лиценз
+			$objPHPExcel->getActiveSheet()->setCellValue('D31',$_POST['ArchiveL']);
+
+
+
+
+	//Виртуален принтер PDF Версия B32
+	$objPHPExcel->getActiveSheet()->setCellValue('B32',$_POST['VirtualPrinterV']);
+
+ 			//Фактура номер C32
+ 			$objPHPExcel->getActiveSheet()->setCellValue('C32',$_POST['VirtualPrinterInvoice']);
+
+			//D32 Лиценз
+		$objPHPExcel->getActiveSheet()->setCellValue('D32',$_POST['VirtualPrinterL']);
+
+
+
+	//Imos Версия B33
+	$objPHPExcel->getActiveSheet()->setCellValue('B33',$_POST['ImosV']);
+
+ 			//Фактура номер C33
+ 			$objPHPExcel->getActiveSheet()->setCellValue('C33',$_POST['ImosInvoice']);
+
+			//D33 Лиценз
+			$objPHPExcel->getActiveSheet()->setCellValue('D33',$_POST['ImosLicese']);
+
+
+
+	//Отдалечен достъп Версия B 34
+	$objPHPExcel->getActiveSheet()->setCellValue('B34',$_POST['AccessV']);
+
+ 		//		Фактура номер  C34
+ 		$objPHPExcel->getActiveSheet()->setCellValue('C34',$_POST['AccessInvoice']);
+
+		//D34 Лиценз
+		$objPHPExcel->getActiveSheet()->setCellValue('D34',$_POST['AccessLicese']);
+
+
+
+	//Autocad Версия B35
+	$objPHPExcel->getActiveSheet()->setCellValue('B35',$_POST['AutocadV']);
+
+ 		//Фактура номер  C35
+ 		$objPHPExcel->getActiveSheet()->setCellValue('C35',$_POST['AutocadInvoice']);
+
+		//D35 Лиценз
+		$objPHPExcel->getActiveSheet()->setCellValue('D35',$_POST['AutocadL']);
+
+
+
+	//DWG viewers Версия B36
+	$objPHPExcel->getActiveSheet()->setCellValue('B36',$_POST['DWGV']);
+
+
+ 	///Фактура номер C36
+ 	$objPHPExcel->getActiveSheet()->setCellValue('C36',$_POST['DWGInvoice']);
+
+
+	//D36 Лиценз
+	$objPHPExcel->getActiveSheet()->setCellValue('D36',$_POST['DWGL']);
+
+
+
+
+$objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel5');
+$objWriter->save($_POST['PC_Conf']."_Passport_PC_IRIM".'.xls');
+}
+
+?>
